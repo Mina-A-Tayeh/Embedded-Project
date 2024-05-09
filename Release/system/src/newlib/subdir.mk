@@ -36,7 +36,7 @@ CPP_DEPS += \
 system/src/newlib/%.o: ../system/src/newlib/%.c system/src/newlib/subdir.mk
 	@echo 'Building file: $<'
 	@echo 'Invoking: GNU Arm Cross C Compiler'
-	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -Wall -Wextra -g -DNDEBUG -DSTM32F401xE -DHSE_VALUE=8000000 -I"../include" -I"C:\Users\zorof\eclipse-workspace\KeyPad\Gpio" -I"C:\Users\zorof\eclipse-workspace\KeyPad\Lib" -I"C:\Users\zorof\eclipse-workspace\KeyPad\Rcc" -I"../system/include" -I"../system/include/cmsis" -std=gnu11 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -c -o "$@" "$<"
+	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -Wall -Wextra -g -DNDEBUG -DSTM32F401xE -DHSE_VALUE=8000000 -I"C:\Users\lenovo\Desktop\Embedded-Project\Lib" -I"C:\Users\lenovo\Desktop\Embedded-Project\LEDM" -I"../include" -I"C:\Users\lenovo\Desktop\Embedded-Project\Gpio" -I"C:\Users\lenovo\Desktop\Embedded-Project\Rcc" -I"../system/include" -I"../system/include/cmsis" -std=gnu11 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -c -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
@@ -50,7 +50,7 @@ system/src/newlib/%.o: ../system/src/newlib/%.cpp system/src/newlib/subdir.mk
 system/src/newlib/startup.o: ../system/src/newlib/startup.c system/src/newlib/subdir.mk
 	@echo 'Building file: $<'
 	@echo 'Invoking: GNU Arm Cross C Compiler'
-	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -Wall -Wextra -g -DNDEBUG -DSTM32F401xE -DUSE_HAL_DRIVER -DHSE_VALUE=8000000 -DOS_INCLUDE_STARTUP_INIT_MULTIPLE_RAM_SECTIONS -I"../include" -I"C:\Users\zorof\eclipse-workspace\KeyPad\Gpio" -I"C:\Users\zorof\eclipse-workspace\KeyPad\Lib" -I"C:\Users\zorof\eclipse-workspace\KeyPad\Rcc" -I"../system/include" -I"../system/include/cmsis" -std=gnu11 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -c -o "$@" "$<"
+	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -Wall -Wextra -g -DNDEBUG -DSTM32F401xE -DUSE_HAL_DRIVER -DHSE_VALUE=8000000 -DOS_INCLUDE_STARTUP_INIT_MULTIPLE_RAM_SECTIONS -I"C:\Users\lenovo\Desktop\Embedded-Project\Lib" -I"C:\Users\lenovo\Desktop\Embedded-Project\LEDM" -I"../include" -I"C:\Users\lenovo\Desktop\Embedded-Project\Gpio" -I"C:\Users\lenovo\Desktop\Embedded-Project\Rcc" -I"../system/include" -I"../system/include/cmsis" -std=gnu11 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -c -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

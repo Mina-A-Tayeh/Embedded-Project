@@ -23,6 +23,9 @@ ifneq ($(MAKECMDGOALS),clean)
 ifneq ($(strip $(CC_DEPS)),)
 -include $(CC_DEPS)
 endif
+ifneq ($(strip $(SX_DEPS)),)
+-include $(SX_DEPS)
+endif
 ifneq ($(strip $(C++_DEPS)),)
 -include $(C++_DEPS)
 endif
@@ -63,48 +66,48 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := KeyPad
+BUILD_ARTIFACT_NAME := final project
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 SECONDARY_FLASH += \
-KeyPad.hex \
+final\ project.hex \
 
 SECONDARY_SIZE += \
-KeyPad.siz \
+final\ project.siz \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: KeyPad.elf secondary-outputs
+main-build: final\ project.elf secondary-outputs
 
 # Tool invocations
-KeyPad.elf: $(OBJS) $(USER_OBJS) makefile objects.mk $(OPTIONAL_TOOL_DEPS)
+final\ project.elf: $(OBJS) $(USER_OBJS) makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GNU Arm Cross C++ Linker'
-	arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -Wall -Wextra -g -T mem.ld -T libs.ld -T sections.ld -nostartfiles -Xlinker --gc-sections -L"../ldscripts" -Wl,-Map,"KeyPad.map" --specs=nano.specs -o "KeyPad.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -Wall -Wextra -g -T mem.ld -T libs.ld -T sections.ld -nostartfiles -Xlinker --gc-sections -L"../ldscripts" -Wl,-Map,"final project.map" --specs=nano.specs -o "final project.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-KeyPad.hex: KeyPad.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
+final\ project.hex: final\ project.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Invoking: GNU Arm Cross Create Flash Image'
-	arm-none-eabi-objcopy -O ihex "KeyPad.elf"  "KeyPad.hex"
+	arm-none-eabi-objcopy -O ihex "final project.elf"  "final project.hex"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-KeyPad.siz: KeyPad.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
+final\ project.siz: final\ project.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Invoking: GNU Arm Cross Print Size'
-	arm-none-eabi-size --format=berkeley "KeyPad.elf"
+	arm-none-eabi-size --format=berkeley "final project.elf"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(CCM_DEPS)$(C_UPPER_DEPS)$(SECONDARY_SIZE)$(CXXM_DEPS)$(C_DEPS)$(CC_DEPS)$(C++_DEPS)$(OBJS)$(CXX_DEPS)$(SECONDARY_FLASH)$(ASM_DEPS)$(S_UPPER_DEPS)$(C++M_DEPS)$(CPP_DEPS) KeyPad.elf
+	-$(RM) $(CCM_DEPS)$(C_UPPER_DEPS)$(SECONDARY_SIZE)$(CXXM_DEPS)$(C_DEPS)$(CC_DEPS)$(SX_DEPS)$(C++_DEPS)$(OBJS)$(CXX_DEPS)$(SECONDARY_FLASH)$(ASM_DEPS)$(S_UPPER_DEPS)$(C++M_DEPS)$(CPP_DEPS) "final project.elf"
 	-@echo ' '
 
 secondary-outputs: $(SECONDARY_FLASH) $(SECONDARY_SIZE)

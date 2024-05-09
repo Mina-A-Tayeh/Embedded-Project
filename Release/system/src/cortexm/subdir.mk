@@ -23,7 +23,7 @@ OBJS += \
 system/src/cortexm/%.o: ../system/src/cortexm/%.c system/src/cortexm/subdir.mk
 	@echo 'Building file: $<'
 	@echo 'Invoking: GNU Arm Cross C Compiler'
-	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -Wall -Wextra -g -DNDEBUG -DSTM32F401xE -DHSE_VALUE=8000000 -I"../include" -I"C:\Users\zorof\eclipse-workspace\KeyPad\Gpio" -I"C:\Users\zorof\eclipse-workspace\KeyPad\Lib" -I"C:\Users\zorof\eclipse-workspace\KeyPad\Rcc" -I"../system/include" -I"../system/include/cmsis" -std=gnu11 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -c -o "$@" "$<"
+	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -Wall -Wextra -g -DNDEBUG -DSTM32F401xE -DHSE_VALUE=8000000 -I"C:\Users\lenovo\Desktop\Embedded-Project\Lib" -I"C:\Users\lenovo\Desktop\Embedded-Project\LEDM" -I"../include" -I"C:\Users\lenovo\Desktop\Embedded-Project\Gpio" -I"C:\Users\lenovo\Desktop\Embedded-Project\Rcc" -I"../system/include" -I"../system/include/cmsis" -std=gnu11 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -c -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
